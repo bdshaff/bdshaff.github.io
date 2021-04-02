@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Singular Value Decomposing 007&#39;s DB5 - Ben&#39;s Data Science </title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Description for the page" />
+    <meta property="og:site_name" content="Ben&#39;s Data Science" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://bdshaff.github.io/blog/2021-04-02-singular-value-decomposing-007-s-db5/" />
+    <meta property="og:title" content="Singular Value Decomposing 007&#39;s DB5" />
+    <meta property="og:image" content="https://bdshaff.github.io/images/image.png" />
+    <meta property="og:description" content="Description for the page" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <meta name="twitter:title" content="Singular Value Decomposing 007&#39;s DB5" />
+    <meta name="twitter:description" content="Description for the page" />
+    <meta name="twitter:image" content="https://bdshaff.github.io/images/image.png" />
+
+    <link rel="canonical" href="https://bdshaff.github.io/blog/2021-04-02-singular-value-decomposing-007-s-db5/">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://bdshaff.github.io/css/custom.css" />
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github-gist.min.css" integrity="sha512-od7JLoOTxM8w/HSKGzP9Kexc20K9p/M2zxSWsd7H1e4Ctf+8SQFtCWEZnW5u6ul5ehSECa5QmOk9ju2nQMmlVA==" crossorigin="anonymous" />
+    
+
+    
+
+    <link rel="shortcut icon"
+        href="https://bdshaff.github.io/images/favicon.png">
+
+    
+    <link href="https://bdshaff.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Ben&#39;s Data Science" />
+    
+</head>
+
+<body>
+    
+<div class="mt-xl header">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <a href="https://bdshaff.github.io/">
+                    <h1 class="name">Ben&#39;s Data Science</h1>
+                </a>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <ul class="nav nav-primary">
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://bdshaff.github.io/">
+                        
+                        Home
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://bdshaff.github.io/about/">
+                        
+                        About
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/bdshaff">
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://medium.com/@bdshaff">
+                        
+                        Medium
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.linkedin.com/in/bendenisshaffer/">
+                        
+                        LinkedIn
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-lg-8">
+                <h1 class="mx-0 mx-md-4 blog-post-title">Singular Value Decomposing 007&#39;s DB5</h1>
+
+                <div class="mb-md-4 meta">
+                    
+                    
+                    <span class="author" title="R package build">
+                        R package build
+                    </span>
+                    
+                    
+
+                    <span class="date middot" title='Tue Mar 2 2021 00:00:00 UTC'>
+                        2021-03-02
+                    </span>
+
+                    <span class="reading-time middot">
+                        6 min read
+                    </span>
+
+                    <div class="d-none d-md-inline tags">
+                        <ul class="list-unstyled d-inline">
+                            
+                            <li class="d-inline middot">
+                                <a href="https://bdshaff.github.io/tags/svd">SVD</a>
+                            </li>
+                            
+                            <li class="d-inline middot">
+                                <a href="https://bdshaff.github.io/tags/rcpp">Rcpp</a>
+                            </li>
+                            
+                            <li class="d-inline middot">
+                                <a href="https://bdshaff.github.io/tags/image-processing">Image Processing</a>
+                            </li>
+                            
+                            <li class="d-inline middot">
+                                <a href="https://bdshaff.github.io/tags/data-reducation">Data Reducation</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="markdown blog-post-content">
+                    
+    
+<script src="https://bdshaff.github.io/blog/2021-04-02-singular-value-decomposing-007-s-db5/index_files/header-attrs/header-attrs.js"></script>
+
+
+<div id="singular-value-decomposition" class="section level1">
+<h1>Singular Value Decomposition</h1>
+<p>The SVD is one of the most useful matrix decomposition when it comes to Data Science. It’s used in practice for solving regression problems, various dimensionality reduction techniques including PCA, recommendation systems, image processing, and the list goes on.</p>
+<p>My favorite thing about the SVD is that once you have the fundamentals of Linear Algebra down the SVD becomes pretty intuitive and easy to remember. <a href="https://github.com/bdshaff/myc">I even coded it up myself with Rcpp</a> - though admittedly my function is not as robust as what you will get with the out of the box functions in R or Python.</p>
+</div>
+<div id="a-nib-of-math" class="section level1">
+<h1><strong>A Nib of Math</strong></h1>
+<p><span class="math display">\[A = UΣV^T\]</span></p>
+<p>This is it. The SVD gives us a way to decompose a rectangular - not necessarily square matrix - into three components. <span class="math inline">\(U\)</span> and <span class="math inline">\(V^T\)</span> are Orthogonal which is fantastic, and <span class="math inline">\(Σ\)</span> is a Diagonal matrix of singular values in the descending order of magnitude. In geometric terms we decompose a multiplication by A into a rotation - scaling - rotation.</p>
+<div id="here-is-a-quick-example-in-r" class="section level2">
+<h2>Here is a quick example in R:</h2>
+<p>First we simulate a 7 by 3 matrix of standard normal samples.</p>
+<p>Then we simply use the <code>svd</code> function.</p>
+<pre class="r"><code>set.seed(007)
+A = matrix(rnorm(21), ncol = 3)
+A</code></pre>
+<pre><code>##            [,1]       [,2]         [,3]
+## [1,]  2.2872472 -0.1169552  1.896067067
+## [2,] -1.1967717  0.1526576  0.467680511
+## [3,] -0.6942925  2.1899781 -0.893800723
+## [4,] -0.4122930  0.3569862 -0.307328300
+## [5,] -0.9706733  2.7167518 -0.004822422
+## [6,] -0.9472799  2.2814519  0.988164149
+## [7,]  0.7481393  0.3240205  0.839750360</code></pre>
+<pre class="r"><code>rsvd = svd(A)
+rsvd</code></pre>
+<pre><code>## $d
+## [1] 4.656225 3.134693 1.499431
+## 
+## $u
+##             [,1]        [,2]         [,3]
+## [1,] -0.32656110  0.81352961  0.105143318
+## [2,]  0.14791225 -0.08172208 -0.710305948
+## [3,]  0.49954916 -0.01632699  0.543434773
+## [4,]  0.11901476 -0.09162081  0.031963386
+## [5,]  0.60191049  0.21101396  0.116849337
+## [6,]  0.49322511  0.37914465 -0.417596748
+## [7,] -0.04689022  0.36681409  0.005149803
+## 
+## $v
+##            [,1]      [,2]       [,3]
+## [1,] -0.5168149 0.5480927  0.6576448
+## [2,]  0.8467329 0.4405672  0.2982347
+## [3,] -0.1262764 0.7109817 -0.6917798</code></pre>
+<p>This function returns the UU and the VV matrices as well as a vector of singular values, which are the diagonal entries of ΣΣ</p>
+<p>We can check that the product of matrices gives back the original matrix.</p>
+<pre class="r"><code>#A = UDV&#39;
+all.equal(rsvd$u %*% diag(rsvd$d) %*% t(rsvd$v), A)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>And that the UU and the VV matrices are orthogonal</p>
+<pre class="r"><code>#Orthogonal
+round(t(rsvd$u) %*% rsvd$u)</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    0    0
+## [2,]    0    1    0
+## [3,]    0    0    1</code></pre>
+<pre class="r"><code>round(rsvd$v %*% t(rsvd$v))</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    0    0
+## [2,]    0    1    0
+## [3,]    0    0    1</code></pre>
+</div>
+</div>
+<div id="application-image-processing" class="section level1">
+<h1>Application: Image Processing</h1>
+<p>A pretty cool and simple application of SVD is a deconstruction of images into layers of information.</p>
+<p>If we look at a digital image as a two dimensional matrix and apply the SVD we will be able to reconstruct the image by taking the product of the three matrices.</p>
+<p>However, if we want to reduce the data but loose as little information as possible we may take only a subset of singular values and their respective vectors from the UU and VV matrices.</p>
+<p>Here is a concrete example using an image of an Aston Martin DB5 on display at the 007 exhibition at SPYSCAPE - the Spy Museum in NYC.</p>
+<pre class="r"><code>library(imager)</code></pre>
+<pre><code>## Loading required package: magrittr</code></pre>
+<pre><code>## 
+## Attaching package: &#39;imager&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:magrittr&#39;:
+## 
+##     add</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     convolve, spectrum</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     frame</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     save.image</code></pre>
+<pre class="r"><code>aston = load.image(&quot;../../../static/images/aston-db5.jpg&quot;)
+aston_mat = aston[,,2]
+aston_decomp = svd(aston_mat)
+
+par(mfrow = c(4,4), mar = c(1,1,1,1))
+plot(aston, axes = FALSE, main = &quot;original image&quot;)
+for(i in seq(2, 30, by = 2)){
+  n = i
+  reduced_img = as.cimg(aston_decomp$u[,1:n] %*% diag(aston_decomp$d[1:n]) %*% t(aston_decomp$v[,1:n]))
+  plot(reduced_img, axes = FALSE, main = paste(i))
+}</code></pre>
+<p><img src="https://bdshaff.github.io/blog/2021-04-02-singular-value-decomposing-007-s-db5/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>In the above code we load the image, apply the SVD to a grayscale version, and the reconstruct the image with an increasingly large subsets of the singular values.</p>
+<p>Perhaps with only 4 dimensions we can’t yet recognize that this is an image of a car, but with just two more we can clearly see the vehicle.</p>
+<p>If all we care to know is that the image contains a car, then 6-10 components are enough.</p>
+<p>If for example we are bundling a classification model than this kind of data reduction may be a very useful pre-processing step.</p>
+</div>
+<div id="a-bit-more-math-and-computation" class="section level1">
+<h1>A Bit More Math and Computation</h1>
+<p>So SVD seems pretty cool but how does it actually work? How is it computed?</p>
+<p>The idea that helps me remember how SVD works is that SVD allows us to kind of invert a rectangular matrix - and it does so by applying the Eigen decomposition to two related square matrices. Given an <span class="math inline">\(A_{n,m}\)</span> we can compute</p>
+<p><span class="math display">\[  AA^T=M_{n,n} \]</span>
+<span class="math display">\[ AA^T=M{m,m} \]</span></p>
+<p>Then if we decompose using, say the QR method, we will get the following</p>
+<p><span class="math display">\[M_{n,n}=UΛ_nU^T, M_{m,m}=VΛ_mV^T\]</span></p>
+<p>With this in mind it becomes relatively simple to compute the decomposition provided we know the eigenvlue decomposition. In practice we don’t only need to do one egenvalue decomposition as long as we are mindful of the dimensions of the input matrix. Here is an implementation in C++ and a check that it works.</p>
+<pre class="r"><code>List myc_svd(NumericMatrix A, double margin = 1e-20)
+  int ncol = A.cols();
+  int nrow = A.rows();
+  if(ncol &gt;= nrow){
+    NumericMatrix X = myc_matmult(A, transpose(A));
+    List E = myc_eigen(X);
+    NumericVector d = E[&quot;values&quot;];
+    d = sqrt(d);
+    NumericMatrix U = E[&quot;vectors&quot;];
+    NumericMatrix S(d.length(), d.length());
+    for(int i = 0; i &lt; d.length(); i++){
+      for(int j = 0; j &lt; d.length(); j++)
+        if(i == j){
+          S(i,j) = 1.0/d(i);
+        }
+    }
+    NumericMatrix O = myc_matmult(transpose(U),A);
+    NumericMatrix V = myc_matmult(S, O);
+    V = transpose(V);
+    List L = List::create(Named(&quot;d&quot;) = d,
+                          Named(&quot;U&quot;) = U,
+                          Named(&quot;V&quot;) = V,
+                          Named(&quot;S&quot;) = S);
+    return L;
+  }else{
+    NumericMatrix X = myc_matmult(transpose(A), A);
+    List E = myc_eigen(X);
+    NumericVector d = E[&quot;values&quot;];
+    d = sqrt(d);
+    NumericMatrix V = E[&quot;vectors&quot;];
+    NumericMatrix S(d.length(), d.length());
+    for(int i = 0; i &lt; d.length(); i++){
+      for(int j = 0; j &lt; d.length(); j++)
+        if(i == j){
+          S(i,j) = 1.0/d(i);
+        }
+    }
+    NumericMatrix O = myc_matmult(A,V);
+    NumericMatrix U = myc_matmult(O,S);
+    List L = List::create(Named(&quot;d&quot;) = d,
+                          Named(&quot;U&quot;) = U,
+                          Named(&quot;V&quot;) = V,
+                          Named(&quot;S&quot;) = S);
+    return L;
+  }
+}</code></pre>
+<pre class="r"><code>library(myc)
+mysvd = myc_svd(A)
+all.equal(mysvd$U %*% diag(mysvd$d)  %*% t(mysvd$V), A)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>mysvd</code></pre>
+<pre><code>## $d
+## [1] 4.656225 3.134693 1.499431
+## 
+## $U
+##             [,1]        [,2]         [,3]
+## [1,]  0.32656148  0.81352927 -0.105143318
+## [2,] -0.14791229 -0.08172192  0.710305948
+## [3,] -0.49954917 -0.01632648 -0.543434773
+## [4,] -0.11901480 -0.09162069 -0.031963386
+## [5,] -0.60191039  0.21101458 -0.116849337
+## [6,] -0.49322493  0.37914516  0.417596748
+## [7,]  0.04689039  0.36681404 -0.005149803
+## 
+## $V
+##            [,1]      [,2]       [,3]
+## [1,]  0.5168153 0.5480924 -0.6576448
+## [2,] -0.8467326 0.4405678 -0.2982347
+## [3,]  0.1262769 0.7109816  0.6917798
+## 
+## $S
+##           [,1]      [,2]      [,3]
+## [1,] 0.2147663 0.0000000 0.0000000
+## [2,] 0.0000000 0.3190105 0.0000000
+## [3,] 0.0000000 0.0000000 0.6669196</code></pre>
+</div>
+
+
+
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="comments">
+    <div class="py-3 content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-lg-8">
+                    <div class="comments">
+                        <script src="https://utteranc.es/client.js" repo=""
+                            issue-term="pathname" label="comment" theme="github-light" crossorigin="anonymous" async>
+                            </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    
+
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js" defer></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/python.min.js" defer></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/stan.min.js" defer></script>
+        
+        <script>
+            window.addEventListener('load', function() {
+                hljs.initHighlighting();
+            }, true);
+        </script>
+    
+
+    
+
+    
+    
+        
+<script src="https://bdshaff.github.io/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+</body>
+
+</html>

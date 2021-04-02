@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Computation on Ben&#39;s Data Science</title>
+    <link>https://bdshaff.github.io/tags/computation/</link>
+    <description>Recent content in Computation on Ben&#39;s Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 02 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/tags/computation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>QR Method to Compute Eigenvalues</title>
+      <link>https://bdshaff.github.io/blog/2021-04-02-qr-method-to-compute-eigenvalues/</link>
+      <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/blog/2021-04-02-qr-method-to-compute-eigenvalues/</guid>
+      <description>Eigenvalues In Linear Algebra and consequently in Data Science the concept of Eigenvalues is pretty important and useful to know given how often it comes up. You may encounter them when going over estimation of regression coefficients, unsupervised machine learning and dimensionality reduction, as well as all over mathematics and engineering. Outside of statistics I remember eigenvecotors being important in solving differential equations.</description>
+    </item>
+    
+  </channel>
+</rss>

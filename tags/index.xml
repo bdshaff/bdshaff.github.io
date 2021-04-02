@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Ben&#39;s Data Science</title>
+    <link>https://bdshaff.github.io/tags/</link>
+    <description>Recent content in Tags on Ben&#39;s Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Attribution</title>
+      <link>https://bdshaff.github.io/tags/attribution/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/tags/attribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Marokov Chains</title>
+      <link>https://bdshaff.github.io/tags/marokov-chains/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/tags/marokov-chains/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Simulation</title>
+      <link>https://bdshaff.github.io/tags/simulation/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/tags/simulation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Reducation</title>
+      <link>https://bdshaff.github.io/tags/data-reducation/</link>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/tags/data-reducation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Image Processing</title>
+      <link>https://bdshaff.github.io/tags/image-processing/</link>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/tags/image-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rcpp</title>
+      <link>https://bdshaff.github.io/tags/rcpp/</link>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/tags/rcpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SVD</title>
+      <link>https://bdshaff.github.io/tags/svd/</link>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/tags/svd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Computation</title>
+      <link>https://bdshaff.github.io/tags/computation/</link>
+      <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/tags/computation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Eigenvalues</title>
+      <link>https://bdshaff.github.io/tags/eigenvalues/</link>
+      <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/tags/eigenvalues/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linear Algebra on Ben&#39;s Data Science</title>
+    <link>https://bdshaff.github.io/categories/linear-algebra/</link>
+    <description>Recent content in Linear Algebra on Ben&#39;s Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 02 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/categories/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Singular Value Decomposing 007&#39;s DB5</title>
+      <link>https://bdshaff.github.io/blog/2021-04-02-singular-value-decomposing-007-s-db5/</link>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/blog/2021-04-02-singular-value-decomposing-007-s-db5/</guid>
+      <description>Singular Value Decomposition The SVD is one of the most useful matrix decomposition when it comes to Data Science. It’s used in practice for solving regression problems, various dimensionality reduction techniques including PCA, recommendation systems, image processing, and the list goes on.
+My favorite thing about the SVD is that once you have the fundamentals of Linear Algebra down the SVD becomes pretty intuitive and easy to remember. I even coded it up myself with Rcpp - though admittedly my function is not as robust as what you will get with the out of the box functions in R or Python.</description>
+    </item>
+    
+    <item>
+      <title>QR Method to Compute Eigenvalues</title>
+      <link>https://bdshaff.github.io/blog/2021-04-02-qr-method-to-compute-eigenvalues/</link>
+      <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/blog/2021-04-02-qr-method-to-compute-eigenvalues/</guid>
+      <description>Eigenvalues In Linear Algebra and consequently in Data Science the concept of Eigenvalues is pretty important and useful to know given how often it comes up. You may encounter them when going over estimation of regression coefficients, unsupervised machine learning and dimensionality reduction, as well as all over mathematics and engineering. Outside of statistics I remember eigenvecotors being important in solving differential equations.</description>
+    </item>
+    
+  </channel>
+</rss>
