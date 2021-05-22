@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning on Ben&#39;s Data Science</title>
+    <link>https://bdshaff.github.io/categories/machine-learning/</link>
+    <description>Recent content in Machine Learning on Ben&#39;s Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 10 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First Steps with Neural Networks</title>
+      <link>https://bdshaff.github.io/blog/2021-04-10-first-steps-with-neural-networks/</link>
+      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/blog/2021-04-10-first-steps-with-neural-networks/</guid>
+      <description>import pandas as pd import numpy as np import matplotlib.pyplot as plt import keras from keras.layers import Dense, Conv2D, Flatten, BatchNormalization from keras.models import Sequential from keras.utils.np_utils import to_categorical y_train = pd.read_csv(&amp;quot;data/prepared/train/train_labels.csv&amp;quot;) X_train = pd.read_csv(&amp;quot;data/prepared/train/train_data_table.csv&amp;quot;) y_train = to_categorical(pd.Categorical(y_train.value).codes, num_classes=2) y_test = pd.read_csv(&amp;quot;data/prepared/test/test_labels.csv&amp;quot;) X_test = pd.read_csv(&amp;quot;data/prepared/test/test_data_table.csv&amp;quot;) y_test = to_categorical(pd.Categorical(y_test.value).codes, num_classes=2) X_train = np.array(X_train).reshape(13986, 150, 150, 1) X_test = np.array(X_test).reshape(2993, 150, 150, 1) model = Sequential() model.add(Conv2D(30, kernel_size=5, activation=&amp;#39;relu&amp;#39;, input_shape=(150, 150, 1), strides = 2)) model.</description>
+    </item>
+    
+  </channel>
+</rss>

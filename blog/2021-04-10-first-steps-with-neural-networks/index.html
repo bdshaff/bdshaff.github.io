@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> First Steps with Neural Networks - Ben&#39;s Data Science </title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Description for the page" />
+    <meta property="og:site_name" content="Ben&#39;s Data Science" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://bdshaff.github.io/blog/2021-04-10-first-steps-with-neural-networks/" />
+    <meta property="og:title" content="First Steps with Neural Networks" />
+    <meta property="og:image" content="https://bdshaff.github.io/images/image.png" />
+    <meta property="og:description" content="Description for the page" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <meta name="twitter:title" content="First Steps with Neural Networks" />
+    <meta name="twitter:description" content="Description for the page" />
+    <meta name="twitter:image" content="https://bdshaff.github.io/images/image.png" />
+
+    <link rel="canonical" href="https://bdshaff.github.io/blog/2021-04-10-first-steps-with-neural-networks/">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://bdshaff.github.io/css/custom.css" />
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github-gist.min.css" integrity="sha512-od7JLoOTxM8w/HSKGzP9Kexc20K9p/M2zxSWsd7H1e4Ctf+8SQFtCWEZnW5u6ul5ehSECa5QmOk9ju2nQMmlVA==" crossorigin="anonymous" />
+    
+
+    
+
+    <link rel="shortcut icon"
+        href="https://bdshaff.github.io/images/favicon.png">
+
+    
+    <link href="https://bdshaff.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Ben&#39;s Data Science" />
+    
+</head>
+
+<body>
+    
+<div class="mt-xl header">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <a href="https://bdshaff.github.io/">
+                    <h1 class="name">Ben&#39;s Data Science</h1>
+                </a>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <ul class="nav nav-primary">
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://bdshaff.github.io/">
+                        
+                        Home
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://bdshaff.github.io/about/">
+                        
+                        About
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/bdshaff">
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://medium.com/@bdshaff">
+                        
+                        Medium
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.linkedin.com/in/bendenisshaffer/">
+                        
+                        LinkedIn
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-lg-8">
+                <h1 class="mx-0 mx-md-4 blog-post-title">First Steps with Neural Networks</h1>
+
+                <div class="mb-md-4 meta">
+                    
+                    
+                    <span class="author" title="R package build">
+                        R package build
+                    </span>
+                    
+                    
+
+                    <span class="date middot" title='Sat Apr 10 2021 00:00:00 UTC'>
+                        2021-04-10
+                    </span>
+
+                    <span class="reading-time middot">
+                        1 min read
+                    </span>
+
+                    <div class="d-none d-md-inline tags">
+                        <ul class="list-unstyled d-inline">
+                            
+                            <li class="d-inline middot">
+                                <a href="https://bdshaff.github.io/tags/python">Python</a>
+                            </li>
+                            
+                            <li class="d-inline middot">
+                                <a href="https://bdshaff.github.io/tags/keras">Keras</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="markdown blog-post-content">
+                    
+    
+<script src="https://bdshaff.github.io/blog/2021-04-10-first-steps-with-neural-networks/index_files/header-attrs/header-attrs.js"></script>
+
+
+<pre class="python"><code>import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import keras
+from keras.layers import Dense, Conv2D, Flatten, BatchNormalization
+from keras.models import Sequential
+from keras.utils.np_utils import to_categorical</code></pre>
+<pre class="python"><code>y_train = pd.read_csv(&quot;data/prepared/train/train_labels.csv&quot;)
+X_train = pd.read_csv(&quot;data/prepared/train/train_data_table.csv&quot;)
+y_train = to_categorical(pd.Categorical(y_train.value).codes, num_classes=2)</code></pre>
+<pre class="python"><code>y_test = pd.read_csv(&quot;data/prepared/test/test_labels.csv&quot;)
+X_test = pd.read_csv(&quot;data/prepared/test/test_data_table.csv&quot;)
+y_test = to_categorical(pd.Categorical(y_test.value).codes, num_classes=2)</code></pre>
+<pre class="python"><code>X_train = np.array(X_train).reshape(13986, 150, 150, 1)
+X_test = np.array(X_test).reshape(2993, 150, 150, 1)</code></pre>
+<pre class="python"><code>model = Sequential()
+
+model.add(Conv2D(30, kernel_size=5, activation=&#39;relu&#39;, input_shape=(150, 150, 1), strides = 2))
+model.add(BatchNormalization())
+model.add(Conv2D(15, kernel_size=3, activation=&#39;relu&#39;, input_shape=(150, 150, 1), strides = 2))
+model.add(Flatten())
+model.add(Dense(2, activation = &#39;sigmoid&#39;))
+
+model.compile(optimizer = &#39;sgd&#39;, loss = &#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])</code></pre>
+<pre class="python"><code>training2 = model.fit(X_train, y_train, validation_data = (X_test, y_test), epochs=10, batch_size = 10)</code></pre>
+<pre class="python"><code>plt.plot(training2.history[&#39;accuracy&#39;])
+plt.plot(training2.history[&#39;val_accuracy&#39;])
+plt.show()</code></pre>
+
+
+
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="comments">
+    <div class="py-3 content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-lg-8">
+                    <div class="comments">
+                        <script src="https://utteranc.es/client.js" repo=""
+                            issue-term="pathname" label="comment" theme="github-light" crossorigin="anonymous" async>
+                            </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    
+
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js" defer></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/python.min.js" defer></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/stan.min.js" defer></script>
+        
+        <script>
+            window.addEventListener('load', function() {
+                hljs.initHighlighting();
+            }, true);
+        </script>
+    
+
+    
+
+    
+    
+        
+
+    
+</body>
+
+</html>
