@@ -6,7 +6,16 @@
     <description>Recent content on Ben&#39;s Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Keras</title>
+      <link>https://bdshaff.github.io/blog/2021-05-23-keras/</link>
+      <pubDate>Sun, 23 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/blog/2021-05-23-keras/</guid>
+      <description>library(tidyverse) library(tensorflow) library(keras) library(reticulate) use_condaenv(&amp;quot;~/miniforge3/envs/python38&amp;quot;) summary(model) ## Model: &amp;quot;sequential_2&amp;quot; ## ________________________________________________________________________________ ## Layer (type) Output Shape Param # ## ================================================================================ ## conv2d_8 (Conv2D) (None, 74, 74, 120) 1200 ## ________________________________________________________________________________ ## max_pooling2d_3 (MaxPooling2D) (None, 37, 37, 120) 0 ## ________________________________________________________________________________ ## conv2d_7 (Conv2D) (None, 18, 18, 60) 64860 ## ________________________________________________________________________________ ## conv2d_6 (Conv2D) (None, 8, 8, 60) 32460 ## ________________________________________________________________________________ ## max_pooling2d_2 (MaxPooling2D) (None, 4, 4, 60) 0 ## ________________________________________________________________________________ ## conv2d_5 (Conv2D) (None, 1, 1, 40) 21640 ## ________________________________________________________________________________ ## flatten_1 (Flatten) (None, 40) 0 ## ________________________________________________________________________________ ## dense_1 (Dense) (None, 2) 82 ## ================================================================================ ## Total params: 120,242 ## Trainable params: 120,242 ## Non-trainable params: 0 ## ________________________________________________________________________________ plotly::ggplotly( model_history %&amp;gt;% rownames_to_column(var = &amp;quot;batch&amp;quot;) %&amp;gt;% mutate(batch = as.</description>
+    </item>
+    
     <item>
       <title>First Steps with Neural Networks</title>
       <link>https://bdshaff.github.io/blog/2021-04-10-first-steps-with-neural-networks/</link>

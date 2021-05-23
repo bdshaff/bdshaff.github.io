@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Keras - Ben&#39;s Data Science </title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Description for the page" />
+    <meta property="og:site_name" content="Ben&#39;s Data Science" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://bdshaff.github.io/blog/2021-05-23-keras/" />
+    <meta property="og:title" content="Keras" />
+    <meta property="og:image" content="https://bdshaff.github.io/images/image.png" />
+    <meta property="og:description" content="Description for the page" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <meta name="twitter:title" content="Keras" />
+    <meta name="twitter:description" content="Description for the page" />
+    <meta name="twitter:image" content="https://bdshaff.github.io/images/image.png" />
+
+    <link rel="canonical" href="https://bdshaff.github.io/blog/2021-05-23-keras/">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://bdshaff.github.io/css/custom.css" />
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github-gist.min.css" integrity="sha512-od7JLoOTxM8w/HSKGzP9Kexc20K9p/M2zxSWsd7H1e4Ctf+8SQFtCWEZnW5u6ul5ehSECa5QmOk9ju2nQMmlVA==" crossorigin="anonymous" />
+    
+
+    
+
+    <link rel="shortcut icon"
+        href="https://bdshaff.github.io/images/favicon.png">
+
+    
+    <link href="https://bdshaff.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Ben&#39;s Data Science" />
+    
+</head>
+
+<body>
+    
+<div class="mt-xl header">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <a href="https://bdshaff.github.io/">
+                    <h1 class="name">Ben&#39;s Data Science</h1>
+                </a>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <ul class="nav nav-primary">
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://bdshaff.github.io/">
+                        
+                        Home
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://bdshaff.github.io/about/">
+                        
+                        About
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/bdshaff">
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://medium.com/@bdshaff">
+                        
+                        Medium
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.linkedin.com/in/bendenisshaffer/">
+                        
+                        LinkedIn
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-lg-8">
+                <h1 class="mx-0 mx-md-4 blog-post-title">Keras</h1>
+
+                <div class="mb-md-4 meta">
+                    
+                    
+                    <span class="author" title="Package Build">
+                        Package Build
+                    </span>
+                    
+                    
+
+                    <span class="date middot" title='Sun May 23 2021 00:00:00 UTC'>
+                        2021-05-23
+                    </span>
+
+                    <span class="reading-time middot">
+                        2 min read
+                    </span>
+
+                    <div class="d-none d-md-inline tags">
+                        <ul class="list-unstyled d-inline">
+                            
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="markdown blog-post-content">
+                    
+    
+<script src="https://bdshaff.github.io/blog/2021-05-23-keras/index_files/header-attrs/header-attrs.js"></script>
+<script src="https://bdshaff.github.io/blog/2021-05-23-keras/index_files/htmlwidgets/htmlwidgets.js"></script>
+<script src="https://bdshaff.github.io/blog/2021-05-23-keras/index_files/plotly-binding/plotly.js"></script>
+<script src="https://bdshaff.github.io/blog/2021-05-23-keras/index_files/typedarray/typedarray.min.js"></script>
+<script src="https://bdshaff.github.io/blog/2021-05-23-keras/index_files/jquery/jquery.min.js"></script>
+<link href="https://bdshaff.github.io/blog/2021-05-23-keras/index_files/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="https://bdshaff.github.io/blog/2021-05-23-keras/index_files/crosstalk/js/crosstalk.min.js"></script>
+<link href="https://bdshaff.github.io/blog/2021-05-23-keras/index_files/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="https://bdshaff.github.io/blog/2021-05-23-keras/index_files/plotly-main/plotly-latest.min.js"></script>
+
+
+<pre class="r"><code>library(tidyverse)
+library(tensorflow)
+library(keras)
+library(reticulate)
+use_condaenv(&quot;~/miniforge3/envs/python38&quot;)</code></pre>
+<pre class="r"><code>summary(model)</code></pre>
+<pre><code>## Model: &quot;sequential_2&quot;
+## ________________________________________________________________________________
+## Layer (type)                        Output Shape                    Param #     
+## ================================================================================
+## conv2d_8 (Conv2D)                   (None, 74, 74, 120)             1200        
+## ________________________________________________________________________________
+## max_pooling2d_3 (MaxPooling2D)      (None, 37, 37, 120)             0           
+## ________________________________________________________________________________
+## conv2d_7 (Conv2D)                   (None, 18, 18, 60)              64860       
+## ________________________________________________________________________________
+## conv2d_6 (Conv2D)                   (None, 8, 8, 60)                32460       
+## ________________________________________________________________________________
+## max_pooling2d_2 (MaxPooling2D)      (None, 4, 4, 60)                0           
+## ________________________________________________________________________________
+## conv2d_5 (Conv2D)                   (None, 1, 1, 40)                21640       
+## ________________________________________________________________________________
+## flatten_1 (Flatten)                 (None, 40)                      0           
+## ________________________________________________________________________________
+## dense_1 (Dense)                     (None, 2)                       82          
+## ================================================================================
+## Total params: 120,242
+## Trainable params: 120,242
+## Non-trainable params: 0
+## ________________________________________________________________________________</code></pre>
+<pre class="r"><code>plotly::ggplotly(
+model_history %&gt;%
+  rownames_to_column(var = &quot;batch&quot;) %&gt;%
+  mutate(batch = as.numeric(batch)) %&gt;%
+  ggplot(aes(batch, accuracy, group = 1)) +
+  geom_line(color = &quot;blue&quot;) + 
+  geom_point(color = &quot;blue&quot;) +
+  geom_line(aes(batch, val_accuracy), color = &quot;green&quot;) +
+  geom_point(aes(batch, val_accuracy), color = &quot;green&quot;) +
+  theme_dark()
+)</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"data":[{"x":[1,2,3,4,5,6,7,8,9,10],"y":[0.798655807971954,0.884884893894196,0.916559398174286,0.931359946727753,0.942656934261322,0.948519945144653,0.955598473548889,0.963963985443115,0.969540953636169,0.973830997943878],"text":["batch:  1<br />accuracy: 0.7986558","batch:  2<br />accuracy: 0.8848849","batch:  3<br />accuracy: 0.9165594","batch:  4<br />accuracy: 0.9313599","batch:  5<br />accuracy: 0.9426569","batch:  6<br />accuracy: 0.9485199","batch:  7<br />accuracy: 0.9555985","batch:  8<br />accuracy: 0.9639640","batch:  9<br />accuracy: 0.9695410","batch: 10<br />accuracy: 0.9738310"],"type":"scatter","mode":"lines+markers","line":{"width":1.88976377952756,"color":"rgba(0,0,255,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(0,0,255,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,0,255,1)"}},"frame":null},{"x":[1,2,3,4,5,6,7,8,9,10],"y":[0.877380549907684,0.918476462364197,0.91780823469162,0.948212504386902,0.946541905403137,0.951887726783752,0.953224182128906,0.947878360748291,0.941864371299744,0.941530227661133],"text":["batch:  1<br />val_accuracy: 0.8773805<br />batch:  1<br />accuracy: 0.8773805","batch:  2<br />val_accuracy: 0.9184765<br />batch:  2<br />accuracy: 0.9184765","batch:  3<br />val_accuracy: 0.9178082<br />batch:  3<br />accuracy: 0.9178082","batch:  4<br />val_accuracy: 0.9482125<br />batch:  4<br />accuracy: 0.9482125","batch:  5<br />val_accuracy: 0.9465419<br />batch:  5<br />accuracy: 0.9465419","batch:  6<br />val_accuracy: 0.9518877<br />batch:  6<br />accuracy: 0.9518877","batch:  7<br />val_accuracy: 0.9532242<br />batch:  7<br />accuracy: 0.9532242","batch:  8<br />val_accuracy: 0.9478784<br />batch:  8<br />accuracy: 0.9478784","batch:  9<br />val_accuracy: 0.9418644<br />batch:  9<br />accuracy: 0.9418644","batch: 10<br />val_accuracy: 0.9415302<br />batch: 10<br />accuracy: 0.9415302"],"type":"scatter","mode":"lines+markers","line":{"width":1.88976377952756,"color":"rgba(0,255,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(0,255,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,255,0,1)"}},"frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":48.9497716894977},"plot_bgcolor":"rgba(127,127,127,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.55,10.45],"tickmode":"array","ticktext":["2.5","5.0","7.5","10.0"],"tickvals":[2.5,5,7.5,10],"categoryorder":"array","categoryarray":["2.5","5.0","7.5","10.0"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(107,107,107,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"y","title":{"text":"batch","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.789897048473358,0.982589757442474],"tickmode":"array","ticktext":["0.80","0.85","0.90","0.95"],"tickvals":[0.8,0.85,0.9,0.95],"categoryorder":"array","categoryarray":["0.80","0.85","0.90","0.95"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(107,107,107,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"x","title":{"text":"accuracy","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"6e5575e851cf":{"x":{},"y":{},"type":"scatter"},"6e5567532982":{"x":{},"y":{}},"6e554ca4acd":{"x":{},"y":{},"x.1":{},"y.1":{}},"6e557cf4db2f":{"x":{},"y":{},"x.1":{},"y.1":{}}},"cur_data":"6e5575e851cf","visdat":{"6e5575e851cf":["function (y) ","x"],"6e5567532982":["function (y) ","x"],"6e554ca4acd":["function (y) ","x"],"6e557cf4db2f":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+
+
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="comments">
+    <div class="py-3 content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-lg-8">
+                    <div class="comments">
+                        <script src="https://utteranc.es/client.js" repo=""
+                            issue-term="pathname" label="comment" theme="github-light" crossorigin="anonymous" async>
+                            </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    
+
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js" defer></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/python.min.js" defer></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/stan.min.js" defer></script>
+        
+        <script>
+            window.addEventListener('load', function() {
+                hljs.initHighlighting();
+            }, true);
+        </script>
+    
+
+    
+
+    
+    
+        
+
+    
+</body>
+
+</html>
