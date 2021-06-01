@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Machine Learning on Ben&#39;s Data Science</title>
-    <link>https://bdshaff.github.io/categories/machine-learning/</link>
-    <description>Recent content in Machine Learning on Ben&#39;s Data Science</description>
+    <title>Tensorflow on Ben&#39;s Data Science</title>
+    <link>https://bdshaff.github.io/tags/tensorflow/</link>
+    <description>Recent content in Tensorflow on Ben&#39;s Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 31 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/tags/tensorflow/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Binary Image Classification with Keras in R</title>
       <link>https://bdshaff.github.io/blog/2021-05-31-binary-image-classification-with-keras-in-r/</link>
