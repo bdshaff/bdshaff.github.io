@@ -6,11 +6,11 @@
     <description>Recent content in Keras on Ben&#39;s Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 31 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/tags/keras/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/tags/keras/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Binary Image Classification with Keras in R</title>
+      <title>CNN for Binary Grayscale Image Classification with Keras in R</title>
       <link>https://bdshaff.github.io/blog/2021-05-31-binary-image-classification-with-keras-in-r/</link>
-      <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://bdshaff.github.io/blog/2021-05-31-binary-image-classification-with-keras-in-r/</guid>
       <description>Binary Image Classification with Keras in R (Apple M1 Chip) The exercise is done on hardware with an Apple M1 Chip and using R interface to Keras. This means that the versions of R, Python, TensorFlow and Keras are all versions that run natively on the M1 Chip. If you prefer to use R and use an M1 mac then here are a few useful links:</description>
