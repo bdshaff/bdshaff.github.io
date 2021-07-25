@@ -6,7 +6,18 @@
     <description>Recent content in Blog on Ben&#39;s Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Intro to library(ConversionPath) Simulation, Estimation &amp; Visualization</title>
+      <link>https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/</link>
+      <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/</guid>
+      <description>This post is about my new R package ConversionPath which aims to put together a number of useful tools for analyzing conversion path data commonly encountered in digital marketing and MTA analysis.
+If you want to try it out you can download it the development version from my github
+devtools::install_github(&amp;quot;bdshaff/conversionpath&amp;quot;) Estimate a Transition Matrix from Data library(ConversionPath) set.seed(007) fit_transition_matrix performs a simple task of estimating a transition matrix.</description>
+    </item>
+    
     <item>
       <title>CNN for Binary Grayscale Image Classification with Keras in R</title>
       <link>https://bdshaff.github.io/blog/2021-05-31-binary-image-classification-with-keras-in-r/</link>

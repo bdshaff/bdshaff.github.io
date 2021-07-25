@@ -6,7 +6,34 @@
     <description>Recent content in Tags on Ben&#39;s Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ConversionPath</title>
+      <link>https://bdshaff.github.io/tags/conversionpath/</link>
+      <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/tags/conversionpath/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Marokov Chains</title>
+      <link>https://bdshaff.github.io/tags/marokov-chains/</link>
+      <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/tags/marokov-chains/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Path Data</title>
+      <link>https://bdshaff.github.io/tags/path-data/</link>
+      <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bdshaff.github.io/tags/path-data/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Keras</title>
       <link>https://bdshaff.github.io/tags/keras/</link>
@@ -31,15 +58,6 @@
       <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://bdshaff.github.io/tags/attribution/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Marokov Chains</title>
-      <link>https://bdshaff.github.io/tags/marokov-chains/</link>
-      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://bdshaff.github.io/tags/marokov-chains/</guid>
       <description></description>
     </item>
     

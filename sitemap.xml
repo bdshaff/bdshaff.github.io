@@ -2,14 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://bdshaff.github.io/categories/analytics/</loc>
+    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://bdshaff.github.io/</loc>
-    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
+    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://bdshaff.github.io/blog/</loc>
-    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
+    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://bdshaff.github.io/categories/</loc>
-    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
+    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bdshaff.github.io/tags/conversionpath/</loc>
+    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bdshaff.github.io/categories/data-science/</loc>
+    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/</loc>
+    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bdshaff.github.io/categories/marketing/</loc>
+    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bdshaff.github.io/tags/marokov-chains/</loc>
+    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bdshaff.github.io/tags/path-data/</loc>
+    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bdshaff.github.io/tags/</loc>
+    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://bdshaff.github.io/blog/2021-05-31-binary-image-classification-with-keras-in-r/</loc>
     <lastmod>2021-06-10T00:00:00+00:00</lastmod>
@@ -26,14 +50,8 @@
     <loc>https://bdshaff.github.io/categories/machine-learning/</loc>
     <lastmod>2021-06-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bdshaff.github.io/tags/</loc>
-    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://bdshaff.github.io/tags/tensorflow/</loc>
     <lastmod>2021-06-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://bdshaff.github.io/categories/analytics/</loc>
-    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://bdshaff.github.io/tags/attribution/</loc>
     <lastmod>2021-04-02T00:00:00+00:00</lastmod>
@@ -41,19 +59,10 @@
     <loc>https://bdshaff.github.io/blog/2021-04-02-markov-chain-attribution/</loc>
     <lastmod>2021-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bdshaff.github.io/categories/marketing/</loc>
-    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://bdshaff.github.io/tags/marokov-chains/</loc>
-    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://bdshaff.github.io/tags/simulation/</loc>
     <lastmod>2021-04-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://bdshaff.github.io/tags/data-reducation/</loc>
-    <lastmod>2021-03-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://bdshaff.github.io/categories/data-science/</loc>
     <lastmod>2021-03-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://bdshaff.github.io/tags/image-processing/</loc>

@@ -1,0 +1,1148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Intro to library(ConversionPath) Simulation, Estimation &amp; Visualization - Ben&#39;s Data Science </title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Description for the page" />
+    <meta property="og:site_name" content="Ben&#39;s Data Science" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/" />
+    <meta property="og:title" content="Intro to library(ConversionPath) Simulation, Estimation &amp; Visualization" />
+    <meta property="og:image" content="https://bdshaff.github.io/images/image.png" />
+    <meta property="og:description" content="Description for the page" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <meta name="twitter:title" content="Intro to library(ConversionPath) Simulation, Estimation &amp; Visualization" />
+    <meta name="twitter:description" content="Description for the page" />
+    <meta name="twitter:image" content="https://bdshaff.github.io/images/image.png" />
+
+    <link rel="canonical" href="https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://bdshaff.github.io/css/custom.css" />
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github-gist.min.css" integrity="sha512-od7JLoOTxM8w/HSKGzP9Kexc20K9p/M2zxSWsd7H1e4Ctf+8SQFtCWEZnW5u6ul5ehSECa5QmOk9ju2nQMmlVA==" crossorigin="anonymous" />
+    
+
+    
+
+    <link rel="shortcut icon"
+        href="https://bdshaff.github.io/images/favicon.png">
+
+    
+    <link href="https://bdshaff.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Ben&#39;s Data Science" />
+    
+</head>
+
+<body>
+    
+<div class="mt-xl header">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <a href="https://bdshaff.github.io/">
+                    <h1 class="name">Ben&#39;s Data Science</h1>
+                </a>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <ul class="nav nav-primary">
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://bdshaff.github.io/">
+                        
+                        Home
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://bdshaff.github.io/about/">
+                        
+                        About
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/bdshaff">
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://medium.com/@bdshaff">
+                        
+                        Medium
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.linkedin.com/in/bendenisshaffer/">
+                        
+                        LinkedIn
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-lg-8">
+                <h1 class="mx-0 mx-md-4 blog-post-title">Intro to library(ConversionPath) Simulation, Estimation &amp; Visualization</h1>
+
+                <div class="mb-md-4 meta">
+                    
+                    
+                    <span class="author" title="Ben Denis Shaffer">
+                        Ben Denis Shaffer
+                    </span>
+                    
+                    
+
+                    <span class="date middot" title='Sun Jul 25 2021 00:00:00 UTC'>
+                        2021-07-25
+                    </span>
+
+                    <span class="reading-time middot">
+                        13 min read
+                    </span>
+
+                    <div class="d-none d-md-inline tags">
+                        <ul class="list-unstyled d-inline">
+                            
+                            <li class="d-inline middot">
+                                <a href="https://bdshaff.github.io/tags/conversionpath">ConversionPath</a>
+                            </li>
+                            
+                            <li class="d-inline middot">
+                                <a href="https://bdshaff.github.io/tags/path-data">Path Data</a>
+                            </li>
+                            
+                            <li class="d-inline middot">
+                                <a href="https://bdshaff.github.io/tags/marokov-chains">Marokov Chains</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="markdown blog-post-content">
+                    
+    
+<script src="https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/index_files/header-attrs/header-attrs.js"></script>
+<script src="https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/index_files/htmlwidgets/htmlwidgets.js"></script>
+<script src="https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/index_files/plotly-binding/plotly.js"></script>
+<script src="https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/index_files/typedarray/typedarray.min.js"></script>
+<script src="https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/index_files/jquery/jquery.min.js"></script>
+<link href="https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/index_files/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/index_files/crosstalk/js/crosstalk.min.js"></script>
+<link href="https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/index_files/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/index_files/plotly-main/plotly-latest.min.js"></script>
+
+
+<p>This post is about my new R package <code>ConversionPath</code> which aims to put together a number of useful tools for analyzing conversion path data commonly encountered in digital marketing and MTA analysis.</p>
+<p>If you want to try it out you can download it the development version from my <a href="https://github.com/bdshaff/conversionpath">github</a></p>
+<pre class="r"><code>devtools::install_github(&quot;bdshaff/conversionpath&quot;)</code></pre>
+<div id="estimate-a-transition-matrix-from-data" class="section level1">
+<h1>Estimate a Transition Matrix from Data</h1>
+<pre class="r"><code>library(ConversionPath)
+set.seed(007)</code></pre>
+<p><code>fit_transition_matrix</code> performs a simple task of estimating a transition matrix. To demo this I will use a sample data-set <code>digital_conversion_path</code> that is included with the package. The estimation method is MLE, though only the the actual transition probabilities are computed. (No Standard Errors).</p>
+<div id="example-dataset" class="section level2">
+<h2>Example Dataset</h2>
+<pre class="r"><code>data(&quot;digital_conversion_path&quot;)
+head(digital_conversion_path, 10) |&gt; gt::gt()</code></pre>
+<div id="jsgbozvhxc" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#jsgbozvhxc .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#jsgbozvhxc .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jsgbozvhxc .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#jsgbozvhxc .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#jsgbozvhxc .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jsgbozvhxc .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jsgbozvhxc .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#jsgbozvhxc .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#jsgbozvhxc .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#jsgbozvhxc .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#jsgbozvhxc .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#jsgbozvhxc .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#jsgbozvhxc .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#jsgbozvhxc .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#jsgbozvhxc .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#jsgbozvhxc .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#jsgbozvhxc .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#jsgbozvhxc .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jsgbozvhxc .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#jsgbozvhxc .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jsgbozvhxc .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#jsgbozvhxc .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#jsgbozvhxc .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jsgbozvhxc .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jsgbozvhxc .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#jsgbozvhxc .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jsgbozvhxc .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#jsgbozvhxc .gt_left {
+  text-align: left;
+}
+
+#jsgbozvhxc .gt_center {
+  text-align: center;
+}
+
+#jsgbozvhxc .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#jsgbozvhxc .gt_font_normal {
+  font-weight: normal;
+}
+
+#jsgbozvhxc .gt_font_bold {
+  font-weight: bold;
+}
+
+#jsgbozvhxc .gt_font_italic {
+  font-style: italic;
+}
+
+#jsgbozvhxc .gt_super {
+  font-size: 65%;
+}
+
+#jsgbozvhxc .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">path</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">conv_count</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">drop_count</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">Paid Search</td>
+<td class="gt_row gt_right">184</td>
+<td class="gt_row gt_right">920</td></tr>
+    <tr><td class="gt_row gt_left">Organic Social</td>
+<td class="gt_row gt_right">174</td>
+<td class="gt_row gt_right">1218</td></tr>
+    <tr><td class="gt_row gt_left">Programmatic</td>
+<td class="gt_row gt_right">162</td>
+<td class="gt_row gt_right">1296</td></tr>
+    <tr><td class="gt_row gt_left">Organic Search</td>
+<td class="gt_row gt_right">158</td>
+<td class="gt_row gt_right">1106</td></tr>
+    <tr><td class="gt_row gt_left">Online-Video</td>
+<td class="gt_row gt_right">142</td>
+<td class="gt_row gt_right">1420</td></tr>
+    <tr><td class="gt_row gt_left">Paid Social</td>
+<td class="gt_row gt_right">129</td>
+<td class="gt_row gt_right">1161</td></tr>
+    <tr><td class="gt_row gt_left">Paid Search &gt; Programmatic</td>
+<td class="gt_row gt_right">55</td>
+<td class="gt_row gt_right">385</td></tr>
+    <tr><td class="gt_row gt_left">Organic Social &gt; Paid Search</td>
+<td class="gt_row gt_right">36</td>
+<td class="gt_row gt_right">288</td></tr>
+    <tr><td class="gt_row gt_left">Organic Search &gt; Programmatic</td>
+<td class="gt_row gt_right">33</td>
+<td class="gt_row gt_right">297</td></tr>
+    <tr><td class="gt_row gt_left">Programmatic &gt; Paid Social</td>
+<td class="gt_row gt_right">33</td>
+<td class="gt_row gt_right">198</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+<pre class="r"><code>tail(digital_conversion_path, 10) |&gt; gt::gt()</code></pre>
+<div id="xhvohzlsth" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#xhvohzlsth .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xhvohzlsth .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xhvohzlsth .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xhvohzlsth .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xhvohzlsth .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xhvohzlsth .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xhvohzlsth .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xhvohzlsth .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xhvohzlsth .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xhvohzlsth .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xhvohzlsth .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xhvohzlsth .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xhvohzlsth .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xhvohzlsth .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xhvohzlsth .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xhvohzlsth .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xhvohzlsth .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#xhvohzlsth .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xhvohzlsth .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#xhvohzlsth .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xhvohzlsth .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xhvohzlsth .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xhvohzlsth .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xhvohzlsth .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xhvohzlsth .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#xhvohzlsth .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xhvohzlsth .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#xhvohzlsth .gt_left {
+  text-align: left;
+}
+
+#xhvohzlsth .gt_center {
+  text-align: center;
+}
+
+#xhvohzlsth .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xhvohzlsth .gt_font_normal {
+  font-weight: normal;
+}
+
+#xhvohzlsth .gt_font_bold {
+  font-weight: bold;
+}
+
+#xhvohzlsth .gt_font_italic {
+  font-style: italic;
+}
+
+#xhvohzlsth .gt_super {
+  font-size: 65%;
+}
+
+#xhvohzlsth .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">path</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">conv_count</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">drop_count</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">Programmatic &gt; Paid Social &gt; Organic Search &gt; Programmatic</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">9</td></tr>
+    <tr><td class="gt_row gt_left">Programmatic &gt; Paid Social &gt; Organic Social</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">7</td></tr>
+    <tr><td class="gt_row gt_left">Programmatic &gt; Paid Social &gt; Organic Social &gt; Paid Social &gt; Organic Search &gt; Programmatic &gt; Paid Search &gt; Programmatic &gt; Organic Search</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">6</td></tr>
+    <tr><td class="gt_row gt_left">Programmatic &gt; Paid Social &gt; Paid Search</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">5</td></tr>
+    <tr><td class="gt_row gt_left">Programmatic &gt; Paid Social &gt; Paid Search &gt; Programmatic &gt; Online-Video</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">7</td></tr>
+    <tr><td class="gt_row gt_left">Programmatic &gt; Paid Social &gt; Paid Search &gt; Programmatic &gt; Paid Search</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">10</td></tr>
+    <tr><td class="gt_row gt_left">Programmatic &gt; Paid Social &gt; Programmatic &gt; Online-Video &gt; Organic Search</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">9</td></tr>
+    <tr><td class="gt_row gt_left">Programmatic &gt; Paid Social &gt; Programmatic &gt; Organic Search &gt; Online-Video</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">5</td></tr>
+    <tr><td class="gt_row gt_left">Programmatic &gt; Paid Social &gt; Programmatic &gt; Organic Search &gt; Online-Video &gt; Organic Search</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">5</td></tr>
+    <tr><td class="gt_row gt_left">Programmatic &gt; Paid Social &gt; Programmatic &gt; Organic Social &gt; Paid Social</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">10</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+<ol style="list-style-type: decimal">
+<li>Extract a list of paths from the dataset using <code>extract_path_list</code></li>
+</ol>
+<pre class="r"><code>conv_count = digital_conversion_path$conv_count
+drop_count = digital_conversion_path$drop_count
+P = extract_path_list(digital_conversion_path)</code></pre>
+<p>Here is a sample from this list</p>
+<pre class="r"><code>P[sample(1:length(P),5)]</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;Organic Search&quot; &quot;Online-Video&quot;   &quot;Paid Search&quot;   
+## 
+## [[2]]
+## [1] &quot;Online-Video&quot;   &quot;Organic Social&quot; &quot;Online-Video&quot;   &quot;Programmatic&quot;  
+## [5] &quot;Paid Social&quot;    &quot;Online-Video&quot;  
+## 
+## [[3]]
+## [1] &quot;Organic Search&quot; &quot;Programmatic&quot;   &quot;Organic Search&quot; &quot;Paid Social&quot;   
+## 
+## [[4]]
+## [1] &quot;Organic Social&quot; &quot;Paid Social&quot;    &quot;Paid Search&quot;   
+## 
+## [[5]]
+## [1] &quot;Paid Search&quot;  &quot;Paid Social&quot;  &quot;Online-Video&quot; &quot;Paid Social&quot;</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Fit the transition matrix by providing the path list, vector of total conversions per path, and a vector of total non-conversions per path.</li>
+</ol>
+<pre class="r"><code>M = fit_transition_matrix(P, conv_count, drop_count)</code></pre>
+<pre><code>## [1] &quot;Start: Online-Video&quot;
+## [1] &quot;END: Online-Video&quot;
+## [1] &quot;Start: Organic Search&quot;
+## [1] &quot;END: Organic Search&quot;
+## [1] &quot;Start: Organic Social&quot;
+## [1] &quot;END: Organic Social&quot;
+## [1] &quot;Start: Paid Search&quot;
+## [1] &quot;END: Paid Search&quot;
+## [1] &quot;Start: Paid Social&quot;
+## [1] &quot;END: Paid Social&quot;
+## [1] &quot;Start: Programmatic&quot;
+## [1] &quot;END: Programmatic&quot;</code></pre>
+<pre class="r"><code>round(M, 3)</code></pre>
+<pre><code>##                start  conv  drop Online-Video Organic Search Organic Social
+## start              0 0.000 0.000        0.188          0.141          0.164
+## conv               0 1.000 0.000        0.000          0.000          0.000
+## drop               0 0.000 1.000        0.000          0.000          0.000
+## Online-Video       0 0.044 0.361        0.000          0.151          0.071
+## Organic Search     0 0.047 0.352        0.119          0.000          0.048
+## Organic Social     0 0.045 0.315        0.076          0.081          0.000
+## Paid Search        0 0.053 0.347        0.031          0.028          0.121
+## Paid Social        0 0.045 0.348        0.168          0.201          0.045
+## Programmatic       0 0.052 0.393        0.111          0.120          0.063
+##                Paid Search Paid Social Programmatic
+## start                0.189       0.154        0.164
+## conv                 0.000       0.000        0.000
+## drop                 0.000       0.000        0.000
+## Online-Video         0.087       0.133        0.154
+## Organic Search       0.057       0.166        0.211
+## Organic Social       0.182       0.134        0.167
+## Paid Search          0.000       0.190        0.230
+## Paid Social          0.047       0.000        0.147
+## Programmatic         0.092       0.170        0.000</code></pre>
+<p>The result is the matrix you see above. The format of the matrix is “proper” for conversion data analysis in that the non accessible <code>start</code> state, and the absorbing <code>conv</code> and <code>drop</code> states are implicitly added to the transition matrix. To be proper the following conditions are enforced:</p>
+<ul>
+<li>first column is a row of probabilities for the starting point of the path.</li>
+<li>first column is all 0s indicating that the starting position is not accessible from any state in the markov chain.</li>
+<li>the second and third row/column form a 2x2 identity sub matrix designating the absorbing conversion and non-conversion states.</li>
+<li>the matrix is a proper transition matrix i.e. square and all rows sum to 1.</li>
+</ul>
+</div>
+<div id="comparison-and-integration-with-channelattribution" class="section level2">
+<h2>Comparison and Integration with <code>ChannelAttribution</code></h2>
+<p>If you are using the <code>ChannelAttribution::markov_model</code>, by specifying the argument <code>out_more = TRUE</code> we can get back a transition matrix in a long format, and indexed touch-points. With the <code>transition_matrix_from_markov_model</code> function we can generate a “proper” transition matrix. This may be useful if you want to use the matrix for visualization and simulation.</p>
+<pre class="r"><code>library(ChannelAttribution)
+
+mcm = markov_model(digital_conversion_path,
+                   var_path = &quot;path&quot;,
+                   var_conv = &quot;conv_count&quot;,
+                   var_null = &quot;drop_count&quot;,
+                   out_more = TRUE,
+                   verbose = FALSE)
+
+MC = transition_matrix_from_markov_model(mcm)
+round(MC[colnames(M),colnames(M)], 3)</code></pre>
+<pre><code>##                start  conv  drop Online-Video Organic Search Organic Social
+## start              0 0.000 0.000        0.188          0.155          0.174
+## conv               0 1.000 0.000        0.000          0.000          0.000
+## drop               0 0.000 1.000        0.000          0.000          0.000
+## Online-Video       0 0.044 0.361        0.000          0.151          0.071
+## Organic Search     0 0.047 0.352        0.119          0.000          0.048
+## Organic Social     0 0.045 0.315        0.076          0.081          0.000
+## Paid Search        0 0.053 0.347        0.031          0.028          0.121
+## Paid Social        0 0.045 0.348        0.168          0.201          0.045
+## Programmatic       0 0.052 0.393        0.111          0.120          0.063
+##                Paid Search Paid Social Programmatic
+## start                0.171       0.154        0.157
+## conv                 0.000       0.000        0.000
+## drop                 0.000       0.000        0.000
+## Online-Video         0.087       0.133        0.154
+## Organic Search       0.057       0.166        0.211
+## Organic Social       0.182       0.134        0.167
+## Paid Search          0.000       0.190        0.230
+## Paid Social          0.047       0.000        0.147
+## Programmatic         0.092       0.170        0.000</code></pre>
+</div>
+</div>
+<div id="visualization" class="section level1">
+<h1>Visualization</h1>
+<div id="transition-matrix" class="section level2">
+<h2>Transition Matrix</h2>
+<p>Simple plot of the transition matrix:</p>
+<pre class="r"><code>plot_transition_matrix(M)</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"b19e41c125d5":["function () ","plotlyVisDat"]},"cur_data":"b19e41c125d5","attrs":{"b19e41c125d5":{"x":["Online-Video","Organic Search","Organic Social","Paid Search","Paid Social","Programmatic"],"y":["Online-Video","Organic Search","Organic Social","Paid Search","Paid Social","Programmatic"],"z":[[0,0.150790166812994,0.0711150131694469,0.0870280948200176,0.133011413520632,0.153533801580334],[0.118898760557201,0,0.0477130635077328,0.0569266205988812,0.166173083251069,0.211253701875617],[0.0755325112107623,0.0812780269058296,0,0.182315022421525,0.133688340807175,0.167040358744395],[0.031453634085213,0.0275689223057644,0.121177944862155,0,0.190350877192982,0.229699248120301],[0.167517006802721,0.200680272108844,0.0454459561602419,0.0471466364323507,0,0.146825396825397],[0.110702399719741,0.119810825013137,0.0625328428796637,0.0917849010334559,0.170169907164127,0]],"colors":["#b7c3e0","#e6e6e6","#ffc080"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"heatmap"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"annotations":[{"text":0,"y":"Online-Video","x":"Online-Video","showarrow":false},{"text":0.12,"y":"Organic Search","x":"Online-Video","showarrow":false},{"text":0.08,"y":"Organic Social","x":"Online-Video","showarrow":false},{"text":0.03,"y":"Paid Search","x":"Online-Video","showarrow":false},{"text":0.17,"y":"Paid Social","x":"Online-Video","showarrow":false},{"text":0.11,"y":"Programmatic","x":"Online-Video","showarrow":false},{"text":0.15,"y":"Online-Video","x":"Organic Search","showarrow":false},{"text":0,"y":"Organic Search","x":"Organic Search","showarrow":false},{"text":0.08,"y":"Organic Social","x":"Organic Search","showarrow":false},{"text":0.03,"y":"Paid Search","x":"Organic Search","showarrow":false},{"text":0.2,"y":"Paid Social","x":"Organic Search","showarrow":false},{"text":0.12,"y":"Programmatic","x":"Organic Search","showarrow":false},{"text":0.07,"y":"Online-Video","x":"Organic Social","showarrow":false},{"text":0.05,"y":"Organic Search","x":"Organic Social","showarrow":false},{"text":0,"y":"Organic Social","x":"Organic Social","showarrow":false},{"text":0.12,"y":"Paid Search","x":"Organic Social","showarrow":false},{"text":0.05,"y":"Paid Social","x":"Organic Social","showarrow":false},{"text":0.06,"y":"Programmatic","x":"Organic Social","showarrow":false},{"text":0.09,"y":"Online-Video","x":"Paid Search","showarrow":false},{"text":0.06,"y":"Organic Search","x":"Paid Search","showarrow":false},{"text":0.18,"y":"Organic Social","x":"Paid Search","showarrow":false},{"text":0,"y":"Paid Search","x":"Paid Search","showarrow":false},{"text":0.05,"y":"Paid Social","x":"Paid Search","showarrow":false},{"text":0.09,"y":"Programmatic","x":"Paid Search","showarrow":false},{"text":0.13,"y":"Online-Video","x":"Paid Social","showarrow":false},{"text":0.17,"y":"Organic Search","x":"Paid Social","showarrow":false},{"text":0.13,"y":"Organic Social","x":"Paid Social","showarrow":false},{"text":0.19,"y":"Paid Search","x":"Paid Social","showarrow":false},{"text":0,"y":"Paid Social","x":"Paid Social","showarrow":false},{"text":0.17,"y":"Programmatic","x":"Paid Social","showarrow":false},{"text":0.15,"y":"Online-Video","x":"Programmatic","showarrow":false},{"text":0.21,"y":"Organic Search","x":"Programmatic","showarrow":false},{"text":0.17,"y":"Organic Social","x":"Programmatic","showarrow":false},{"text":0.23,"y":"Paid Search","x":"Programmatic","showarrow":false},{"text":0.15,"y":"Paid Social","x":"Programmatic","showarrow":false},{"text":0,"y":"Programmatic","x":"Programmatic","showarrow":false}],"xaxis":{"domain":[0,1],"automargin":true,"title":[]},"yaxis":{"domain":[0,1],"automargin":true,"title":[]},"scene":{"zaxis":{"title":[]}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"showSendToCloud":false},"data":[{"colorbar":{"title":"","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(183,195,224,1)"],["0.0416666666666667","rgba(187,198,225,1)"],["0.0833333333333333","rgba(191,201,225,1)"],["0.125","rgba(195,204,226,1)"],["0.166666666666667","rgba(199,207,226,1)"],["0.208333333333333","rgba(203,209,227,1)"],["0.25","rgba(207,212,227,1)"],["0.291666666666667","rgba(211,215,228,1)"],["0.333333333333333","rgba(215,218,228,1)"],["0.375","rgba(218,221,229,1)"],["0.416666666666667","rgba(222,224,229,1)"],["0.458333333333333","rgba(226,227,230,1)"],["0.5","rgba(230,230,230,1)"],["0.541666666666667","rgba(233,227,221,1)"],["0.583333333333333","rgba(236,224,213,1)"],["0.625","rgba(239,220,204,1)"],["0.666666666666667","rgba(242,217,196,1)"],["0.708333333333333","rgba(244,214,187,1)"],["0.75","rgba(246,211,179,1)"],["0.791666666666667","rgba(248,208,170,1)"],["0.833333333333333","rgba(250,205,162,1)"],["0.875","rgba(251,201,153,1)"],["0.916666666666667","rgba(253,198,145,1)"],["0.958333333333333","rgba(254,195,137,1)"],["1","rgba(255,192,128,1)"]],"showscale":true,"x":["Online-Video","Organic Search","Organic Social","Paid Search","Paid Social","Programmatic"],"y":["Online-Video","Organic Search","Organic Social","Paid Search","Paid Social","Programmatic"],"z":[[0,0.150790166812994,0.0711150131694469,0.0870280948200176,0.133011413520632,0.153533801580334],[0.118898760557201,0,0.0477130635077328,0.0569266205988812,0.166173083251069,0.211253701875617],[0.0755325112107623,0.0812780269058296,0,0.182315022421525,0.133688340807175,0.167040358744395],[0.031453634085213,0.0275689223057644,0.121177944862155,0,0.190350877192982,0.229699248120301],[0.167517006802721,0.200680272108844,0.0454459561602419,0.0471466364323507,0,0.146825396825397],[0.110702399719741,0.119810825013137,0.0625328428796637,0.0917849010334559,0.170169907164127,0]],"type":"heatmap","xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>Adding the absorbing states into the picture:</p>
+<pre class="r"><code>plot_transition_matrix(M, full = TRUE)</code></pre>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"visdat":{"b19e221b1172":["function () ","plotlyVisDat"]},"cur_data":"b19e221b1172","attrs":{"b19e221b1172":{"x":["start","conv","drop","Online-Video","Organic Search","Organic Social","Paid Search","Paid Social","Programmatic"],"y":["start","conv","drop","Online-Video","Organic Search","Organic Social","Paid Search","Paid Social","Programmatic"],"z":[[0,0,0,0.187869822485207,0.140532544378698,0.164201183431953,0.189349112426035,0.153846153846154,0.164201183431953],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0.0436786654960492,0.360842844600527,0,0.150790166812994,0.0711150131694469,0.0870280948200176,0.133011413520632,0.153533801580334],[0,0.0471646374904025,0.351870132719096,0.118898760557201,0,0.0477130635077328,0.0569266205988812,0.166173083251069,0.211253701875617],[0,0.0454035874439462,0.314742152466368,0.0755325112107623,0.0812780269058296,0,0.182315022421525,0.133688340807175,0.167040358744395],[0,0.0528822055137845,0.346867167919799,0.031453634085213,0.0275689223057644,0.121177944862155,0,0.190350877192982,0.229699248120301],[0,0.0446900982615268,0.347694633408919,0.167517006802721,0.200680272108844,0.0454459561602419,0.0471466364323507,0,0.146825396825397],[0,0.0523734454370293,0.392625678752846,0.110702399719741,0.119810825013137,0.0625328428796637,0.0917849010334559,0.170169907164127,0]],"colors":["#b7c3e0","#e6e6e6","#ffc080"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"heatmap"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"annotations":[{"text":0,"y":"start","x":"start","showarrow":false},{"text":0,"y":"conv","x":"start","showarrow":false},{"text":0,"y":"drop","x":"start","showarrow":false},{"text":0,"y":"Online-Video","x":"start","showarrow":false},{"text":0,"y":"Organic Search","x":"start","showarrow":false},{"text":0,"y":"Organic Social","x":"start","showarrow":false},{"text":0,"y":"Paid Search","x":"start","showarrow":false},{"text":0,"y":"Paid Social","x":"start","showarrow":false},{"text":0,"y":"Programmatic","x":"start","showarrow":false},{"text":0,"y":"start","x":"conv","showarrow":false},{"text":1,"y":"conv","x":"conv","showarrow":false},{"text":0,"y":"drop","x":"conv","showarrow":false},{"text":0.04,"y":"Online-Video","x":"conv","showarrow":false},{"text":0.05,"y":"Organic Search","x":"conv","showarrow":false},{"text":0.05,"y":"Organic Social","x":"conv","showarrow":false},{"text":0.05,"y":"Paid Search","x":"conv","showarrow":false},{"text":0.04,"y":"Paid Social","x":"conv","showarrow":false},{"text":0.05,"y":"Programmatic","x":"conv","showarrow":false},{"text":0,"y":"start","x":"drop","showarrow":false},{"text":0,"y":"conv","x":"drop","showarrow":false},{"text":1,"y":"drop","x":"drop","showarrow":false},{"text":0.36,"y":"Online-Video","x":"drop","showarrow":false},{"text":0.35,"y":"Organic Search","x":"drop","showarrow":false},{"text":0.31,"y":"Organic Social","x":"drop","showarrow":false},{"text":0.35,"y":"Paid Search","x":"drop","showarrow":false},{"text":0.35,"y":"Paid Social","x":"drop","showarrow":false},{"text":0.39,"y":"Programmatic","x":"drop","showarrow":false},{"text":0.19,"y":"start","x":"Online-Video","showarrow":false},{"text":0,"y":"conv","x":"Online-Video","showarrow":false},{"text":0,"y":"drop","x":"Online-Video","showarrow":false},{"text":0,"y":"Online-Video","x":"Online-Video","showarrow":false},{"text":0.12,"y":"Organic Search","x":"Online-Video","showarrow":false},{"text":0.08,"y":"Organic Social","x":"Online-Video","showarrow":false},{"text":0.03,"y":"Paid Search","x":"Online-Video","showarrow":false},{"text":0.17,"y":"Paid Social","x":"Online-Video","showarrow":false},{"text":0.11,"y":"Programmatic","x":"Online-Video","showarrow":false},{"text":0.14,"y":"start","x":"Organic Search","showarrow":false},{"text":0,"y":"conv","x":"Organic Search","showarrow":false},{"text":0,"y":"drop","x":"Organic Search","showarrow":false},{"text":0.15,"y":"Online-Video","x":"Organic Search","showarrow":false},{"text":0,"y":"Organic Search","x":"Organic Search","showarrow":false},{"text":0.08,"y":"Organic Social","x":"Organic Search","showarrow":false},{"text":0.03,"y":"Paid Search","x":"Organic Search","showarrow":false},{"text":0.2,"y":"Paid Social","x":"Organic Search","showarrow":false},{"text":0.12,"y":"Programmatic","x":"Organic Search","showarrow":false},{"text":0.16,"y":"start","x":"Organic Social","showarrow":false},{"text":0,"y":"conv","x":"Organic Social","showarrow":false},{"text":0,"y":"drop","x":"Organic Social","showarrow":false},{"text":0.07,"y":"Online-Video","x":"Organic Social","showarrow":false},{"text":0.05,"y":"Organic Search","x":"Organic Social","showarrow":false},{"text":0,"y":"Organic Social","x":"Organic Social","showarrow":false},{"text":0.12,"y":"Paid Search","x":"Organic Social","showarrow":false},{"text":0.05,"y":"Paid Social","x":"Organic Social","showarrow":false},{"text":0.06,"y":"Programmatic","x":"Organic Social","showarrow":false},{"text":0.19,"y":"start","x":"Paid Search","showarrow":false},{"text":0,"y":"conv","x":"Paid Search","showarrow":false},{"text":0,"y":"drop","x":"Paid Search","showarrow":false},{"text":0.09,"y":"Online-Video","x":"Paid Search","showarrow":false},{"text":0.06,"y":"Organic Search","x":"Paid Search","showarrow":false},{"text":0.18,"y":"Organic Social","x":"Paid Search","showarrow":false},{"text":0,"y":"Paid Search","x":"Paid Search","showarrow":false},{"text":0.05,"y":"Paid Social","x":"Paid Search","showarrow":false},{"text":0.09,"y":"Programmatic","x":"Paid Search","showarrow":false},{"text":0.15,"y":"start","x":"Paid Social","showarrow":false},{"text":0,"y":"conv","x":"Paid Social","showarrow":false},{"text":0,"y":"drop","x":"Paid Social","showarrow":false},{"text":0.13,"y":"Online-Video","x":"Paid Social","showarrow":false},{"text":0.17,"y":"Organic Search","x":"Paid Social","showarrow":false},{"text":0.13,"y":"Organic Social","x":"Paid Social","showarrow":false},{"text":0.19,"y":"Paid Search","x":"Paid Social","showarrow":false},{"text":0,"y":"Paid Social","x":"Paid Social","showarrow":false},{"text":0.17,"y":"Programmatic","x":"Paid Social","showarrow":false},{"text":0.16,"y":"start","x":"Programmatic","showarrow":false},{"text":0,"y":"conv","x":"Programmatic","showarrow":false},{"text":0,"y":"drop","x":"Programmatic","showarrow":false},{"text":0.15,"y":"Online-Video","x":"Programmatic","showarrow":false},{"text":0.21,"y":"Organic Search","x":"Programmatic","showarrow":false},{"text":0.17,"y":"Organic Social","x":"Programmatic","showarrow":false},{"text":0.23,"y":"Paid Search","x":"Programmatic","showarrow":false},{"text":0.15,"y":"Paid Social","x":"Programmatic","showarrow":false},{"text":0,"y":"Programmatic","x":"Programmatic","showarrow":false}],"xaxis":{"domain":[0,1],"automargin":true,"title":[]},"yaxis":{"domain":[0,1],"automargin":true,"title":[]},"scene":{"zaxis":{"title":[]}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"showSendToCloud":false},"data":[{"colorbar":{"title":"","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(183,195,224,1)"],["0.0416666666666667","rgba(187,198,225,1)"],["0.0833333333333333","rgba(191,201,225,1)"],["0.125","rgba(195,204,226,1)"],["0.166666666666667","rgba(199,207,226,1)"],["0.208333333333333","rgba(203,209,227,1)"],["0.25","rgba(207,212,227,1)"],["0.291666666666667","rgba(211,215,228,1)"],["0.333333333333333","rgba(215,218,228,1)"],["0.375","rgba(218,221,229,1)"],["0.416666666666667","rgba(222,224,229,1)"],["0.458333333333333","rgba(226,227,230,1)"],["0.5","rgba(230,230,230,1)"],["0.541666666666667","rgba(233,227,221,1)"],["0.583333333333333","rgba(236,224,213,1)"],["0.625","rgba(239,220,204,1)"],["0.666666666666667","rgba(242,217,196,1)"],["0.708333333333333","rgba(244,214,187,1)"],["0.75","rgba(246,211,179,1)"],["0.791666666666667","rgba(248,208,170,1)"],["0.833333333333333","rgba(250,205,162,1)"],["0.875","rgba(251,201,153,1)"],["0.916666666666667","rgba(253,198,145,1)"],["0.958333333333333","rgba(254,195,137,1)"],["1","rgba(255,192,128,1)"]],"showscale":true,"x":["start","conv","drop","Online-Video","Organic Search","Organic Social","Paid Search","Paid Social","Programmatic"],"y":["start","conv","drop","Online-Video","Organic Search","Organic Social","Paid Search","Paid Social","Programmatic"],"z":[[0,0,0,0.187869822485207,0.140532544378698,0.164201183431953,0.189349112426035,0.153846153846154,0.164201183431953],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0.0436786654960492,0.360842844600527,0,0.150790166812994,0.0711150131694469,0.0870280948200176,0.133011413520632,0.153533801580334],[0,0.0471646374904025,0.351870132719096,0.118898760557201,0,0.0477130635077328,0.0569266205988812,0.166173083251069,0.211253701875617],[0,0.0454035874439462,0.314742152466368,0.0755325112107623,0.0812780269058296,0,0.182315022421525,0.133688340807175,0.167040358744395],[0,0.0528822055137845,0.346867167919799,0.031453634085213,0.0275689223057644,0.121177944862155,0,0.190350877192982,0.229699248120301],[0,0.0446900982615268,0.347694633408919,0.167517006802721,0.200680272108844,0.0454459561602419,0.0471466364323507,0,0.146825396825397],[0,0.0523734454370293,0.392625678752846,0.110702399719741,0.119810825013137,0.0625328428796637,0.0917849010334559,0.170169907164127,0]],"type":"heatmap","xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="conversion-flow" class="section level2">
+<h2>Conversion Flow</h2>
+<p>The <code>conversion_flow</code> function runs a simulation with a given number of simulated paths <code>num_sim = 20</code> each with a given number of steps num_steps = 4. We have the simulated table, and the conversion flow diagram returned.</p>
+<pre class="r"><code>S = conversion_flow(M, num_steps = 4, num_sim = 50)
+S$conversion_flow_diagram</code></pre>
+<div id="htmlwidget-3" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"visdat":{"b19e7737b775":["function () ","plotlyVisDat"]},"cur_data":"b19e7737b775","attrs":{"b19e7737b775":{"orientation":"h","node":{"label":["1-Online-Video","1-Organic Search","1-Organic Social","1-Paid Search","1-Paid Social","1-Programmatic","2-drop","2-Online-Video","2-Organic Search","2-Organic Social","2-Paid Search","2-Paid Social","2-Programmatic","3-conv","3-drop","3-Organic Search","3-Paid Social","3-Programmatic","4-conv","4-drop","4-Organic Social","4-Paid Search","4-Programmatic","4-Organic Search","4-Online-Video","4-Paid Social"],"color":["#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#0075DC","#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#4C005C","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#191919","#005C31","#FFCC99","#4C005C","#993F00","#2BCE48"],"pad":10,"thickness":30,"line":{"color":"black","width":0}},"link":{"source":[0,0,0,0,0,0,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,4,4,4,5,5,5,5,5,6,7,7,7,8,8,9,9,10,10,10,11,11,11,11,12,12,12,13,14,15,15,15,16,16,16,16,17,17,17,17,17,17],"target":[6,8,9,10,11,12,6,7,9,11,6,7,8,10,11,12,6,7,8,9,12,6,8,10,6,7,9,10,11,14,14,15,16,13,14,14,17,14,16,17,13,14,15,17,14,15,16,18,19,20,21,22,18,23,20,22,19,24,23,20,21,25],"value":[3,1,1,2,1,2,1,1,1,1,5,1,1,1,5,1,4,2,1,2,2,2,1,1,2,2,1,1,1,17,3,1,2,2,2,3,2,2,1,2,1,3,2,2,3,1,1,3,33,1,1,2,1,1,1,1,1,1,1,1,1,1]},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"sankey"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Conversion Flow Diagram","font":{"size":10},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"orientation":"h","node":{"label":["1-Online-Video","1-Organic Search","1-Organic Social","1-Paid Search","1-Paid Social","1-Programmatic","2-drop","2-Online-Video","2-Organic Search","2-Organic Social","2-Paid Search","2-Paid Social","2-Programmatic","3-conv","3-drop","3-Organic Search","3-Paid Social","3-Programmatic","4-conv","4-drop","4-Organic Social","4-Paid Search","4-Programmatic","4-Organic Search","4-Online-Video","4-Paid Social"],"color":["#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#0075DC","#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#4C005C","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#191919","#005C31","#FFCC99","#4C005C","#993F00","#2BCE48"],"pad":10,"thickness":30,"line":{"color":"black","width":0}},"link":{"source":[0,0,0,0,0,0,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,4,4,4,5,5,5,5,5,6,7,7,7,8,8,9,9,10,10,10,11,11,11,11,12,12,12,13,14,15,15,15,16,16,16,16,17,17,17,17,17,17],"target":[6,8,9,10,11,12,6,7,9,11,6,7,8,10,11,12,6,7,8,9,12,6,8,10,6,7,9,10,11,14,14,15,16,13,14,14,17,14,16,17,13,14,15,17,14,15,16,18,19,20,21,22,18,23,20,22,19,24,23,20,21,25],"value":[3,1,1,2,1,2,1,1,1,1,5,1,1,1,5,1,4,2,1,2,2,2,1,1,2,2,1,1,1,17,3,1,2,2,2,3,2,2,1,2,1,3,2,2,3,1,1,3,33,1,1,2,1,1,1,1,1,1,1,1,1,1]},"type":"sankey","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>More paths:</p>
+<pre class="r"><code>S = conversion_flow(M, num_steps = 4, num_sim = 300)
+S$conversion_flow_diagram</code></pre>
+<div id="htmlwidget-4" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4">{"x":{"visdat":{"b19e1680b620":["function () ","plotlyVisDat"]},"cur_data":"b19e1680b620","attrs":{"b19e1680b620":{"orientation":"h","node":{"label":["1-Online-Video","1-Organic Search","1-Organic Social","1-Paid Search","1-Paid Social","1-Programmatic","2-conv","2-drop","2-Online-Video","2-Organic Search","2-Organic Social","2-Paid Search","2-Paid Social","2-Programmatic","3-conv","3-drop","3-Online-Video","3-Organic Search","3-Organic Social","3-Paid Search","3-Paid Social","3-Programmatic","4-conv","4-drop","4-Organic Search","4-Organic Social","4-Paid Search","4-Paid Social","4-Programmatic","4-Online-Video"],"color":["#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#993F00"],"pad":10,"thickness":30,"line":{"color":"black","width":0}},"link":{"source":[0,0,0,0,0,0,0,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,6,7,8,8,8,8,8,8,8,9,9,9,9,9,9,9,10,10,10,10,11,11,11,11,11,11,12,12,12,12,12,13,13,13,13,13,13,13,14,15,16,16,16,16,16,16,17,17,17,17,17,17,17,18,18,18,18,18,18,19,19,19,19,19,20,20,20,20,20,21,21,21,21,21,21],"target":[6,7,9,10,11,12,13,6,7,8,10,12,13,6,7,8,9,11,12,13,6,7,8,9,10,12,13,6,7,8,9,11,13,6,7,8,9,10,11,12,14,15,14,15,17,18,19,20,21,14,15,16,18,19,20,21,15,19,20,21,14,15,17,18,20,21,14,15,16,17,21,14,15,16,17,18,19,20,22,23,23,24,25,26,27,28,22,23,29,25,26,27,28,22,23,29,26,27,28,22,23,25,27,28,22,23,29,24,26,22,23,29,25,26,27],"value":[4,14,12,2,7,6,7,3,16,7,2,10,9,5,10,2,3,10,9,8,2,24,1,3,8,10,12,3,17,10,10,2,9,3,18,3,4,1,4,10,20,99,1,7,3,2,2,3,5,1,7,6,1,5,6,6,8,1,2,2,2,5,1,4,5,6,4,18,8,9,6,4,13,7,6,3,4,8,32,157,5,6,3,1,4,2,3,5,1,2,2,2,4,1,1,2,2,2,2,1,4,3,2,2,4,8,6,4,2,4,10,2,4,3,2]},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"sankey"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Conversion Flow Diagram","font":{"size":10},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"orientation":"h","node":{"label":["1-Online-Video","1-Organic Search","1-Organic Social","1-Paid Search","1-Paid Social","1-Programmatic","2-conv","2-drop","2-Online-Video","2-Organic Search","2-Organic Social","2-Paid Search","2-Paid Social","2-Programmatic","3-conv","3-drop","3-Online-Video","3-Organic Search","3-Organic Social","3-Paid Search","3-Paid Social","3-Programmatic","4-conv","4-drop","4-Organic Search","4-Organic Social","4-Paid Search","4-Paid Social","4-Programmatic","4-Online-Video"],"color":["#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#993F00"],"pad":10,"thickness":30,"line":{"color":"black","width":0}},"link":{"source":[0,0,0,0,0,0,0,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,6,7,8,8,8,8,8,8,8,9,9,9,9,9,9,9,10,10,10,10,11,11,11,11,11,11,12,12,12,12,12,13,13,13,13,13,13,13,14,15,16,16,16,16,16,16,17,17,17,17,17,17,17,18,18,18,18,18,18,19,19,19,19,19,20,20,20,20,20,21,21,21,21,21,21],"target":[6,7,9,10,11,12,13,6,7,8,10,12,13,6,7,8,9,11,12,13,6,7,8,9,10,12,13,6,7,8,9,11,13,6,7,8,9,10,11,12,14,15,14,15,17,18,19,20,21,14,15,16,18,19,20,21,15,19,20,21,14,15,17,18,20,21,14,15,16,17,21,14,15,16,17,18,19,20,22,23,23,24,25,26,27,28,22,23,29,25,26,27,28,22,23,29,26,27,28,22,23,25,27,28,22,23,29,24,26,22,23,29,25,26,27],"value":[4,14,12,2,7,6,7,3,16,7,2,10,9,5,10,2,3,10,9,8,2,24,1,3,8,10,12,3,17,10,10,2,9,3,18,3,4,1,4,10,20,99,1,7,3,2,2,3,5,1,7,6,1,5,6,6,8,1,2,2,2,5,1,4,5,6,4,18,8,9,6,4,13,7,6,3,4,8,32,157,5,6,3,1,4,2,3,5,1,2,2,2,4,1,1,2,2,2,2,1,4,3,2,2,4,8,6,4,2,4,10,2,4,3,2]},"type":"sankey","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>More steps:</p>
+<pre class="r"><code>S = conversion_flow(M, num_steps = 6, num_sim = 300)
+S$conversion_flow_diagram</code></pre>
+<div id="htmlwidget-5" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5">{"x":{"visdat":{"b19e1a247471":["function () ","plotlyVisDat"]},"cur_data":"b19e1a247471","attrs":{"b19e1a247471":{"orientation":"h","node":{"label":["1-Online-Video","1-Organic Search","1-Organic Social","1-Paid Search","1-Paid Social","1-Programmatic","2-conv","2-drop","2-Online-Video","2-Organic Search","2-Organic Social","2-Paid Search","2-Paid Social","2-Programmatic","3-conv","3-drop","3-Online-Video","3-Organic Search","3-Organic Social","3-Paid Search","3-Paid Social","3-Programmatic","4-conv","4-drop","4-Online-Video","4-Organic Search","4-Organic Social","4-Paid Search","4-Paid Social","4-Programmatic","5-conv","5-drop","5-Online-Video","5-Organic Search","5-Organic Social","5-Paid Search","5-Paid Social","5-Programmatic","6-conv","6-drop","6-Organic Social","6-Programmatic","6-Online-Video","6-Paid Search","6-Paid Social","6-Organic Search"],"color":["#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#191919","#FFCC99","#993F00","#005C31","#2BCE48","#4C005C"],"pad":10,"thickness":30,"line":{"color":"black","width":0}},"link":{"source":[0,0,0,0,0,0,0,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,6,7,8,8,8,8,8,8,9,9,9,9,9,9,10,10,10,10,10,11,11,11,11,11,11,11,12,12,12,12,12,12,12,13,13,13,13,13,13,13,14,15,16,16,16,16,16,16,17,17,17,17,17,17,18,18,18,18,18,19,19,19,19,20,20,20,20,20,20,21,21,21,21,21,21,22,23,24,24,24,24,24,25,25,25,26,26,26,27,27,27,27,28,28,28,28,28,28,28,29,29,29,29,30,31,32,32,32,33,33,34,34,34,34,34,35,35,36,36,36,37],"target":[6,7,9,10,11,12,13,6,7,8,11,12,13,6,7,8,9,11,12,13,6,7,8,10,12,13,6,7,8,9,11,13,6,7,8,9,10,11,12,14,15,14,15,17,18,19,21,14,15,16,19,20,21,15,17,19,20,21,14,15,16,17,18,20,21,14,15,16,17,18,19,21,14,15,16,17,18,19,20,22,23,23,25,26,27,28,29,23,24,26,27,28,29,22,23,24,27,28,23,26,28,29,22,23,24,25,26,29,22,23,25,26,27,28,30,31,30,31,33,34,36,31,32,34,31,32,36,30,31,32,34,30,31,32,33,34,35,37,31,33,35,36,38,39,39,40,41,39,41,38,39,42,43,41,39,44,39,42,45,45],"value":[4,21,9,3,4,8,7,1,18,7,1,5,7,4,17,5,5,7,6,8,2,16,1,5,13,9,4,13,11,9,2,6,3,25,9,7,3,8,7,18,110,1,12,4,4,6,6,1,11,5,1,6,6,5,1,2,1,2,2,11,1,1,2,1,4,1,14,7,6,3,4,4,3,17,2,6,2,4,3,26,180,7,1,1,3,1,2,4,3,1,2,4,4,4,2,2,2,1,9,2,3,3,1,4,1,1,2,2,5,6,2,1,1,7,36,212,1,1,1,2,1,2,1,1,3,2,2,1,3,1,3,2,6,2,2,2,1,1,7,1,1,2,40,234,3,1,2,3,1,1,2,1,2,2,1,1,3,1,1,1]},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"sankey"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Conversion Flow Diagram","font":{"size":10},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"orientation":"h","node":{"label":["1-Online-Video","1-Organic Search","1-Organic Social","1-Paid Search","1-Paid Social","1-Programmatic","2-conv","2-drop","2-Online-Video","2-Organic Search","2-Organic Social","2-Paid Search","2-Paid Social","2-Programmatic","3-conv","3-drop","3-Online-Video","3-Organic Search","3-Organic Social","3-Paid Search","3-Paid Social","3-Programmatic","4-conv","4-drop","4-Online-Video","4-Organic Search","4-Organic Social","4-Paid Search","4-Paid Social","4-Programmatic","5-conv","5-drop","5-Online-Video","5-Organic Search","5-Organic Social","5-Paid Search","5-Paid Social","5-Programmatic","6-conv","6-drop","6-Organic Social","6-Programmatic","6-Online-Video","6-Paid Search","6-Paid Social","6-Organic Search"],"color":["#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#993F00","#4C005C","#191919","#005C31","#2BCE48","#FFCC99","#F0A0FF","#0075DC","#191919","#FFCC99","#993F00","#005C31","#2BCE48","#4C005C"],"pad":10,"thickness":30,"line":{"color":"black","width":0}},"link":{"source":[0,0,0,0,0,0,0,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,6,7,8,8,8,8,8,8,9,9,9,9,9,9,10,10,10,10,10,11,11,11,11,11,11,11,12,12,12,12,12,12,12,13,13,13,13,13,13,13,14,15,16,16,16,16,16,16,17,17,17,17,17,17,18,18,18,18,18,19,19,19,19,20,20,20,20,20,20,21,21,21,21,21,21,22,23,24,24,24,24,24,25,25,25,26,26,26,27,27,27,27,28,28,28,28,28,28,28,29,29,29,29,30,31,32,32,32,33,33,34,34,34,34,34,35,35,36,36,36,37],"target":[6,7,9,10,11,12,13,6,7,8,11,12,13,6,7,8,9,11,12,13,6,7,8,10,12,13,6,7,8,9,11,13,6,7,8,9,10,11,12,14,15,14,15,17,18,19,21,14,15,16,19,20,21,15,17,19,20,21,14,15,16,17,18,20,21,14,15,16,17,18,19,21,14,15,16,17,18,19,20,22,23,23,25,26,27,28,29,23,24,26,27,28,29,22,23,24,27,28,23,26,28,29,22,23,24,25,26,29,22,23,25,26,27,28,30,31,30,31,33,34,36,31,32,34,31,32,36,30,31,32,34,30,31,32,33,34,35,37,31,33,35,36,38,39,39,40,41,39,41,38,39,42,43,41,39,44,39,42,45,45],"value":[4,21,9,3,4,8,7,1,18,7,1,5,7,4,17,5,5,7,6,8,2,16,1,5,13,9,4,13,11,9,2,6,3,25,9,7,3,8,7,18,110,1,12,4,4,6,6,1,11,5,1,6,6,5,1,2,1,2,2,11,1,1,2,1,4,1,14,7,6,3,4,4,3,17,2,6,2,4,3,26,180,7,1,1,3,1,2,4,3,1,2,4,4,4,2,2,2,1,9,2,3,3,1,4,1,1,2,2,5,6,2,1,1,7,36,212,1,1,1,2,1,2,1,1,3,2,2,1,3,1,3,2,6,2,2,2,1,1,7,1,1,2,40,234,3,1,2,3,1,1,2,1,2,2,1,1,3,1,1,1]},"type":"sankey","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="path-data-eda" class="section level2">
+<h2>Path Data EDA</h2>
+<p>Some other useful function for visualizing the actual path data and the derived path_list</p>
+<pre class="r"><code>plot_path_lengths(P)</code></pre>
+<div id="htmlwidget-6" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6">{"x":{"data":[{"orientation":"v","width":[1,1,1,1,1,1,1,1,1,1,1,1],"base":[0,0,0,0,0,0,0,0,0,0,0,0],"x":[1,2,3,4,5,6,7,8,9,10,11,12],"y":[6,30,124,204,148,96,37,19,10,0,1,1],"text":["count:   6<br />path_length:  1","count:  30<br />path_length:  2","count: 124<br />path_length:  3","count: 204<br />path_length:  4","count: 148<br />path_length:  5","count:  96<br />path_length:  6","count:  37<br />path_length:  7","count:  19<br />path_length:  8","count:  10<br />path_length:  9","count:   0<br />path_length: 10","count:   1<br />path_length: 11","count:   1<br />path_length: 12"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(89,89,89,0.8)","line":{"width":1.88976377952756,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":40.1826484018265,"l":43.1050228310502},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Path Length Histogram","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.1,13.1],"tickmode":"array","ticktext":["0.0","2.5","5.0","7.5","10.0","12.5"],"tickvals":[0,2.5,5,7.5,10,12.5],"categoryorder":"array","categoryarray":["0.0","2.5","5.0","7.5","10.0","12.5"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"path_length","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-10.2,214.2],"tickmode":"array","ticktext":["0","50","100","150","200"],"tickvals":[0,50,100,150,200],"categoryorder":"array","categoryarray":["0","50","100","150","200"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"count","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"b19e7952e555":{"x":{},"type":"bar"}},"cur_data":"b19e7952e555","visdat":{"b19e7952e555":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>plot_touchpoint_frequency(P)</code></pre>
+<div id="htmlwidget-7" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7">{"x":{"data":[{"orientation":"h","width":[0.9,0.9,0.9,0.9,0.9,0.9],"base":[0,0,0,0,0,0],"x":[391,437,494,500,624,648],"y":[1,2,3,4,5,6],"text":["touchpoint: Organic Social<br />frequency: 391","touchpoint: Paid Search<br />frequency: 437","touchpoint: Organic Search<br />frequency: 494","touchpoint: Online-Video<br />frequency: 500","touchpoint: Paid Social<br />frequency: 624","touchpoint: Programmatic<br />frequency: 648"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(89,89,89,1)","line":{"width":1.88976377952756,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":40.1826484018265,"l":107.397260273973},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Touchpoint Frequency","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-32.4,680.4],"tickmode":"array","ticktext":["0","200","400","600"],"tickvals":[0,200,400,600],"categoryorder":"array","categoryarray":["0","200","400","600"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"frequency","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,6.6],"tickmode":"array","ticktext":["Organic Social","Paid Search","Organic Search","Online-Video","Paid Social","Programmatic"],"tickvals":[1,2,3,4,5,6],"categoryorder":"array","categoryarray":["Organic Social","Paid Search","Organic Search","Online-Video","Paid Social","Programmatic"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"touchpoint","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"b19e6917c69c":{"x":{},"y":{},"type":"bar"}},"cur_data":"b19e6917c69c","visdat":{"b19e6917c69c":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="more" class="section level1">
+<h1>More</h1>
+<p>There is certainly more functionality to come, and more functionality that is already present. Specifically, some simulation functions that are behind the <code>conversion_flow</code> function. The actual design of the functions will probably also change. One thing is for sure, there are more EDA plots and summaries that will be added to work with conversion path type of data.</p>
+<p>If you have a small data-set with which this may be tested feel free to try and run by uploading data to the demo shiny app:</p>
+<p><a href="http://bdshaff.shinyapps.io/CP-FlexDash" class="uri">http://bdshaff.shinyapps.io/CP-FlexDash</a></p>
+<p><img src="https://bdshaff.github.io/images/CP-dash.jpg" width="400" /></p>
+</div>
+
+
+
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="comments">
+    <div class="py-3 content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-lg-8">
+                    <div class="comments">
+                        <script src="https://utteranc.es/client.js" repo=""
+                            issue-term="pathname" label="comment" theme="github-light" crossorigin="anonymous" async>
+                            </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    
+
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js" defer></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/python.min.js" defer></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/stan.min.js" defer></script>
+        
+        <script>
+            window.addEventListener('load', function() {
+                hljs.initHighlighting();
+            }, true);
+        </script>
+    
+
+    
+
+    
+    
+        
+<script src="https://bdshaff.github.io/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+</body>
+
+</html>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Marokov Chains on Ben&#39;s Data Science</title>
-    <link>https://bdshaff.github.io/tags/marokov-chains/</link>
-    <description>Recent content in Marokov Chains on Ben&#39;s Data Science</description>
+    <title>Path Data on Ben&#39;s Data Science</title>
+    <link>https://bdshaff.github.io/tags/path-data/</link>
+    <description>Recent content in Path Data on Ben&#39;s Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 25 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/tags/marokov-chains/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/tags/path-data/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Intro to library(ConversionPath) Simulation, Estimation &amp; Visualization</title>
       <link>https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/</link>
@@ -16,16 +16,6 @@
       <description>This post is about my new R package ConversionPath which aims to put together a number of useful tools for analyzing conversion path data commonly encountered in digital marketing and MTA analysis.
 If you want to try it out you can download it the development version from my github
 devtools::install_github(&amp;quot;bdshaff/conversionpath&amp;quot;) Estimate a Transition Matrix from Data library(ConversionPath) set.seed(007) fit_transition_matrix performs a simple task of estimating a transition matrix.</description>
-    </item>
-    
-    <item>
-      <title>Intro to Markov Chain Attribution</title>
-      <link>https://bdshaff.github.io/blog/2021-04-02-markov-chain-attribution/</link>
-      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://bdshaff.github.io/blog/2021-04-02-markov-chain-attribution/</guid>
-      <description>What is Attribution Modeling Attribution modeling is a task that comes up in Digital Marketing. Broadly speaking the objective of Attribution modeling is to improve the assessment of various Advertising Channels in driving Marketing Objectives. Before jumping to the data analysis let’s first set the context for the problem that Markov Chain Attribution modeling addresses.
-With this post I am aiming to cover the following:</description>
     </item>
     
   </channel>
