@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ConversionPath on Ben&#39;s Data Science</title>
-    <link>https://bdshaff.github.io/tags/conversionpath/</link>
-    <description>Recent content in ConversionPath on Ben&#39;s Data Science</description>
+    <title>Visualization on Ben&#39;s Data Science</title>
+    <link>https://bdshaff.github.io/tags/visualization/</link>
+    <description>Recent content in Visualization on Ben&#39;s Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 25 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/tags/conversionpath/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Intro to library(ConversionPath) Estimation &amp; Visualization</title>
       <link>https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/</link>
