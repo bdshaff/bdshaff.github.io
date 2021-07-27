@@ -8,14 +8,14 @@
     <language>en</language>
     <lastBuildDate>Sun, 25 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bdshaff.github.io/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Intro to library(ConversionPath) Estimation &amp; Visualization</title>
+      <title>Intro to library(ConversionPath) Estimation &amp; Visualization for Conversion Path Data</title>
       <link>https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/</link>
       <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://bdshaff.github.io/blog/2021-07-25-intro-to-library-conversionpath-simulation-estimation-visualization/</guid>
       <description>This post is about my new R package ConversionPath which aims to put together a number of useful tools for analyzing conversion path data commonly encountered in digital marketing and MTA analysis.
 If you want to try it out you can download the development version from my github
-devtools::install_github(&amp;quot;bdshaff/conversionpath&amp;quot;) Estimate a Transition Matrix from Data library(ConversionPath) set.seed(007) fit_transition_matrix performs a simple task of estimating a transition matrix.</description>
+devtools::install_github(&amp;quot;bdshaff/conversionpath&amp;quot;) Estimate a Transition Matrix from Data library(ConversionPath) set.seed(007) fit_transition_matrix performs the simple task of estimating a transition matrix.</description>
     </item>
     
   </channel>
